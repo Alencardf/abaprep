@@ -1,0 +1,16 @@
+@startuml imposto
+zif_imposto <|.. zcl_imposto_brasil
+zif_imposto <|.. zcl_imposto_india
+zif_imposto <|.. zcl_imposto_usa
+zcl_calculadora_impostos *-- zif_imposto
+interface zif_imposto{
+    calcular():string
+}
+class zcl_imposto_brasil
+class zcl_imposto_usa
+class zcl_imposto_india
+class zcl_calculadora_impostos{
+    constructor(io_imposto:zif_imposto)
+    calcular_imposto():string
+}
+@enduml

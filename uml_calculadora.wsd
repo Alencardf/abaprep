@@ -1,0 +1,26 @@
+@startuml calculadora
+    interface produto_taxa{
+        taxar():double
+    }
+
+    class concrete_taxa_brasil
+    class concrete_taxa_usa
+    class concrete_taxa_cuba
+
+    produto_taxa <|.. concrete_taxa_brasil
+    produto_taxa <|.. concrete_taxa_cuba
+    produto_taxa <|.. concrete_taxa_usa
+
+    abstract class creator_calculadora{
+        criar_calculadora():produto_taxa
+    }
+
+    produto_taxa <.. creator_calculadora
+
+    class concrete_creator_brasil{
+        criar_calculadora():produto_taxa
+    }
+
+    creator_calculadora <|-- concrete_creator_brasil
+
+@enduml
